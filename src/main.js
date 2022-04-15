@@ -1,4 +1,4 @@
-console.log("hi");
+console.log("main");
 let config = {
     type: Phaser.AUTO,
     width: 640,
@@ -13,3 +13,5 @@ let keyF, keyR, keyLEFT, keyRIGHT;
 //set UI sizes
 let borderUISize = game.config.height/15;
 let borderPadding = borderUISize/3;
+
+//high score
