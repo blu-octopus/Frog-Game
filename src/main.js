@@ -16,6 +16,7 @@ console.log("main");
  * lily pad that moves with frog's x, and stay there
  * title and game over screen, animated
  * rocket's sprite change after firing
+ * rocket and spaceshift animated
  * flash text of "+time!" during collision
  * end screen showing player's score
  * sad sfx when game over
