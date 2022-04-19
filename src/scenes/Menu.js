@@ -22,8 +22,7 @@ class Menu extends Phaser.Scene{
 
     create() {
 
-        //this.BGM = this.sound.add('bgm');
-        //this.BGM.play();
+
         this.noFrog = this.add.tileSprite(0, 0, 640, 480, 'noFroggo').setOrigin(0, 0);
         this.noFrog.tilePositionX = 0;
 
@@ -58,7 +57,7 @@ class Menu extends Phaser.Scene{
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
 
-        this.sound.play('bgm');
+        //this.sound.play('bgm');
 
     //     this.anims.create({
     //         key: 'title',

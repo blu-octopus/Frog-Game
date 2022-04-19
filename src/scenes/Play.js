@@ -34,6 +34,10 @@ class Play extends Phaser.Scene{
 
     create() {
         this.add.text(20, 20, "froggy");
+
+        // BGM
+        this.BGM = this.sound.add('bgm');
+        this.BGM.play();
         
         //place tile sprite tileSprite(x, y, width, height, key string)
        this.water = this.add.tileSprite(0, 0, 640, 480, 'bg').setOrigin(0, 0);
@@ -181,10 +185,12 @@ class Play extends Phaser.Scene{
  
     // check key input for restart
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
+            this.BGM.destroy();
             this.scene.restart();
         }
 
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
+            this.BGM.destroy();
             this.scene.start("menuScene");
         }
 
