@@ -28,6 +28,7 @@ class Rocket extends Phaser.GameObjects.Sprite {
       //fire button
       if(Phaser.Input.Keyboard.JustDown(keyF)){
         this.isFiring = true;
+        this.setTexture('move');
 
         //change sprite hopefully
         
@@ -46,14 +47,19 @@ class Rocket extends Phaser.GameObjects.Sprite {
       //reset on miss
       if(this.y <= borderUISize * 3 + borderPadding){
         this.isFiring = false;
-        this.y = game.config.height - borderPadding - borderUISize;
+        this.y = game.config.height - borderPadding*2 - borderUISize;
+        this.setTexture('rocket');
+
       }
     }
 
     //reset rocket  to "ground"
     reset() {
       this.isFiring = false;
-      this.y = game.config.height - borderUISize - borderPadding;
+      //game.config.width/2, game.config.height - borderUISize - borderPadding*2
+      this.y = game.config.height - borderUISize - borderPadding*2;
+      this.setTexture('rocket');
+
     }
 
   }

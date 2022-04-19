@@ -11,11 +11,11 @@ class Play extends Phaser.Scene{
         this.load.image('clock', './assets/stopwatch.png');
 
 
-        this.load.image('moving', './assets/FrogMoving.png');
+        //this.load.image('moving', './assets/FrogMoving.png');
         //this.load.image('spaceship', './assets/FlyNew-modified.png');
         
         this.load.spritesheet('fly', './assets/fly_moving.png', {frameWidth: 32, frameHeight: 32, startFrame: 0, endFrame: 1});
-        //this.load.spritesheet('move', './assets/FrogMovingmoving.png', {frameWidth: 58, frameHeight: 66, startFrame: 0, endFrame: 1});
+        this.load.spritesheet('move', './assets/FrogMoving.png', {frameWidth: 58, frameHeight: 66, startFrame: 0, endFrame: 1});
         this.load.spritesheet('idle', './assets/FrogIdle.png', {frameWidth: 32, frameHeight: 32, startFrame: 0, endFrame: 1});
 
         //parallex
@@ -23,7 +23,7 @@ class Play extends Phaser.Scene{
         this.load.image('lowerWave', './assets/lowerWave.png');
         this.load.image('topWave', './assets/topWave.png');
 
-        this.load.image('water', './assets/water.png');
+        //this.load.image('water', './assets/water.png');
                      
         //load spritesheet()
         //asset name, asset file name, {frame width, frame height, start frame, end frame}
@@ -86,12 +86,12 @@ class Play extends Phaser.Scene{
         //     frameRate: 5,
         //     repeat: -1
         // });
-        // this.anims.create({
-        //     key: 'moving',
-        //     frames: this.anims.generateFrameNumbers('move', { start: 0, end: 1, first: 0}),
-        //     frameRate: 5,
-        //     repeat: -1
-        // });
+        this.anims.create({
+            key: 'moving',
+            frames: this.anims.generateFrameNumbers('move', { start: 0, end: 1, first: 0}),
+            frameRate: 5,
+            repeat: -1
+        });
         this.ship01.anims.play('flying');
         this.ship02.anims.play('flying');
         this.ship03.anims.play('flying');
