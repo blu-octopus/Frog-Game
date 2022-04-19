@@ -40,7 +40,7 @@ class Menu extends Phaser.Scene{
        this.bigFrog.play('bigFroggo');
 
         let menuConfig = {
-            fontFamily: 'Courier',
+            fontFamily: 'Cursive',
             fontSize: '60px',
             backgroundColor: '#F7DD72',
             color: '#843605',

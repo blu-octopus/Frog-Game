@@ -46,7 +46,7 @@ class Play extends Phaser.Scene{
        this.topWave = this.add.tileSprite(0, 0, 640, 480, 'topWave').setOrigin(0, 0);
 
         //Top UI background yellow
-       this.add.rectangle(0, borderUISize+borderPadding, game.config.width, borderUISize*2, 0xF7DD72).setOrigin(0, 0);
+       this.add.rectangle(0, borderUISize+borderPadding -15, game.config.width, borderUISize*3, 0xF7DD72).setOrigin(0, 0);
 
        //borders green
        //rectangle(x, y, width, height, color)
@@ -122,7 +122,7 @@ class Play extends Phaser.Scene{
 
          // display score
          this.scoreConfig = {
-            fontFamily: 'Courier',
+            fontFamily: 'Cursive',
             fontSize: '28px',
             backgroundColor: '#F3B141',
             color: '#843605',
