@@ -211,6 +211,14 @@ class Play extends Phaser.Scene{
         if(this.timeLeft <= 0 && !this.gameOver){
             //end page
             this.noFrog = this.add.image(this.x, this.y, 'noFroggo').setOrigin(0, 0);
+            this.anims.create({
+                key: 'bigFroggo',
+                frames: this.anims.generateFrameNumbers('bigFrog', { start: 0, end: 1, first: 0}),
+                frameRate: 5,
+                repeat: -1
+            });
+            this.bigFrog = this.add.sprite(game.config.width/2 , game.config.height/2 +64, 'bigFrog');
+            this.bigFrog.play('bigFroggo');
 
             this.scoreConfig.backgroundColor = '#F3B141';
             this.scoreConfig.color = '#843605';
@@ -320,8 +328,8 @@ class Play extends Phaser.Scene{
         this.scoreLeft.text = this.p1Score;
         
         //eating noise
-        this.sound.play('sfx_explosion');
-        this.sound.play('sfx_eat');
+        this.sound.play('sfx_explosion', {volume: 5});
+        this.sound.play('sfx_eat', {volume: 10});
         //this.sound.play('sfx_yeahNoise');                                              
     }
 
