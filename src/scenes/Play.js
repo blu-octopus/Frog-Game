@@ -9,6 +9,7 @@ class Play extends Phaser.Scene{
         // load images/tile sprites
         this.load.image('rocket', './assets/singleFrog.png');
         this.load.image('clock', './assets/stopwatch.png');
+        this.load.image('lilyPad', './assets/lilyPad.png');
 
 
         //this.load.image('moving', './assets/FrogMoving.png');
@@ -16,7 +17,7 @@ class Play extends Phaser.Scene{
         
         this.load.spritesheet('fly', './assets/fly_moving.png', {frameWidth: 32, frameHeight: 32, startFrame: 0, endFrame: 1});
         this.load.spritesheet('move', './assets/FrogMoving.png', {frameWidth: 58, frameHeight: 66, startFrame: 0, endFrame: 1});
-        this.load.spritesheet('idle', './assets/FrogIdle.png', {frameWidth: 32, frameHeight: 32, startFrame: 0, endFrame: 1});
+        this.load.spritesheet('idle', './assets/FrogIdle.png', {frameWidth: 73, frameHeight: 53, startFrame: 0, endFrame: 1});
 
         //parallex
         this.load.image('bg', './assets/bg.png');
@@ -54,8 +55,13 @@ class Play extends Phaser.Scene{
        this.add.rectangle(0, 0, borderUISize, game.config.height, 0x4E6766).setOrigin(0, 0);
        this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0x4E6766).setOrigin(0, 0);
 
+       // add lilypad
+       this.lilypad = this.add.image(game.config.width/2, game.config.height/2 + borderUISize*5 + borderPadding*5, 'lilyPad');
+       
        // add rocket (p1)
-       this.p1Rocket = new Rocket(this, game.config.width/2, game.config.height - borderUISize - borderPadding*2, 'rocket').setOrigin(0.5, 0);
+       this.p1Rocket = new Rocket(this, game.config.width/2, game.config.height - borderUISize*2 - borderPadding*2, 'rocket').setOrigin(0.5, 0);
+
+
 
        //add spaceships (x3)
        this.ship01 = new Spaceship(this, game.config.width + borderUISize*6, borderUISize*4, 'fly', 0, 30).setOrigin(0, 0);
@@ -95,18 +101,21 @@ class Play extends Phaser.Scene{
         this.ship01.anims.play('flying');
         this.ship02.anims.play('flying');
         this.ship03.anims.play('flying');
-        //this.rocket.anims.play('rocketing');
 
-    //    this.anims.create({
-    //         key: 'rocket',
-    //         frames: this.anims.generateFrameNumbers('rocket', { start: 0, end: 1, first: 0}),
-    //         frameRate: 
-    //     });       
-    //     this.anims.create({
-    //         key: 'moving',
-    //         frames: this.anims.generateFrameNumbers('moving', { start: 0, end: 1, first: 0}),
-    //         frameRate: 30
-    //     });
+       this.anims.create({
+            key: 'idling',
+            frames: this.anims.generateFrameNumbers('idle', { start: 0, end: 1, first: 0}),
+            frameRate: 5,
+            repeat:-1
+        });       
+        this.anims.create({
+            key: 'moving',
+            frames: this.anims.generateFrameNumbers('move', { start: 0, end: 1, first: 0}),
+            frameRate: 5,
+            repeat: -1
+        });
+        this.p1Rocket.anims.play('idling');
+
 
        //initialize score
        this.p1Score = 0;
@@ -197,15 +206,28 @@ class Play extends Phaser.Scene{
         this.scoreConfig.fixedWidth = 0;
         this.scoreConfig.backgroundColor = '#A5C882';
 
+        this.lilypad.x = this.p1Rocket.x;
+
         if(this.timeLeft <= 0 && !this.gameOver){
+            //end page
             this.noFrog = this.add.image(this.x, this.y, 'noFroggo').setOrigin(0, 0);
 
+            this.scoreConfig.backgroundColor = '#F3B141';
+            this.scoreConfig.color = '#843605';
+            //this.scoreConfig.fixedWidth = 100;
+            this.add.text(game.config.width/2, game.config.height/3 + 32, 'Your Score is', this.scoreConfig).setOrigin(0.5);
+            this.scoreEnd = this.add.text(game.config.width/2, game.config.height/2 - 32, this.p1Score, this.scoreConfig).setOrigin(0);
 
             if (this.p1Score > highScore){
                 highScore = this.p1Score;
             }
-            this.add.text(game.config.width/2, game.config.height/2, 'GAME END', this.scoreConfig).setOrigin(0.5);
-            this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press (R) to Restart or <- for Menu', this.scoreConfig).setOrigin(0.5);
+
+            //this.scoreConfig.fontSize = 'px60';
+            this.scoreConfig.backgroundColor = '#A5C882';
+            this.scoreConfig.color = '#000';
+            this.add.text(game.config.width/2, game.config.height/4, 'GAME END', this.scoreConfig).setOrigin(0.5);
+            //this.scoreConfig.fontSize = 'px28';
+            this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press (R) to Restart or ← for Menu', this.scoreConfig).setOrigin(0.5);
             this.gameOver = true;
             this.sound.play('sfx_gameOver');
 
@@ -300,6 +322,7 @@ class Play extends Phaser.Scene{
         //eating noise
         this.sound.play('sfx_explosion');
         this.sound.play('sfx_eat');
+        //this.sound.play('sfx_yeahNoise');                                              
     }
 
 }

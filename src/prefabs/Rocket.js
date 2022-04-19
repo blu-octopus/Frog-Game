@@ -28,7 +28,9 @@ class Rocket extends Phaser.GameObjects.Sprite {
       //fire button
       if(Phaser.Input.Keyboard.JustDown(keyF)){
         this.isFiring = true;
+        this.anims.stop();
         this.setTexture('move');
+        this.anims.play('moving');
 
         //change sprite hopefully
         
@@ -47,9 +49,10 @@ class Rocket extends Phaser.GameObjects.Sprite {
       //reset on miss
       if(this.y <= borderUISize * 3 + borderPadding){
         this.isFiring = false;
-        this.y = game.config.height - borderPadding*2 - borderUISize;
-        this.setTexture('rocket');
-
+        this.y = game.config.height - borderUISize*2 - borderPadding*2;
+        
+        this.setTexture('idle');
+        this.anims.play('idling');
       }
     }
 
@@ -57,8 +60,9 @@ class Rocket extends Phaser.GameObjects.Sprite {
     reset() {
       this.isFiring = false;
       //game.config.width/2, game.config.height - borderUISize - borderPadding*2
-      this.y = game.config.height - borderUISize - borderPadding*2;
-      this.setTexture('rocket');
+      this.y = game.config.height - borderUISize*2 - borderPadding*2;
+      this.setTexture('idle');
+      this.anims.play('idling');
 
     }
 

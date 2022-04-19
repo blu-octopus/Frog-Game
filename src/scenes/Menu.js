@@ -13,6 +13,7 @@ class Menu extends Phaser.Scene{
 
         this.load.audio('sfx_rocket', './assets/jump.wav');
         this.load.audio('sfx_gameOver', './assets/gameOverNoise.wav');
+        this.load.audio('sfx_yeahNoise', './assets/YeahNoise.wav');
 
         this.load.audio('bgm', './assets/bgm.mp3');
         //this.sound.play('bgm');
@@ -47,10 +48,10 @@ class Menu extends Phaser.Scene{
 
         this.add.text(game.config.width/2, game.config.height/4 - borderUISize - borderPadding, "Froggy", menuConfig).setOrigin(0.5);
         menuConfig.fontSize = '28px';
-        this.add.text(game.config.width/2, game.config.height/2, "Use <- -> & (SPACE)", menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/2, "Use ← → & (SPACE)", menuConfig).setOrigin(0.5);
         menuConfig.backgroundColor = '#A5C882';
         menuConfig.color = '#000';
-        this.add.text(game.config.width/2, game.config.height/2 + borderUISize + borderPadding, "press <- for EASY or -> for HARD", menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/2 + borderUISize + borderPadding, "press ← for EASY or → for HARD", menuConfig).setOrigin(0.5);
         //this.scene.start("playScene");
 
         // define keys
