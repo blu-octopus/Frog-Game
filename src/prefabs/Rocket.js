@@ -29,6 +29,11 @@ class Rocket extends Phaser.GameObjects.Sprite {
       if(Phaser.Input.Keyboard.JustDown(keyF)){
         this.isFiring = true;
 
+        //change sprite hopefully
+        
+        //this.rocket.texture = 'moving';
+
+
         //play rocket fire sfx
         this.sfxRocket.play(); 
       }
