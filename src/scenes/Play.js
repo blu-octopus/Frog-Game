@@ -344,6 +344,7 @@ class Play extends Phaser.Scene{
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 //uwu
 =======
     }
@@ -353,5 +354,7 @@ class Play extends Phaser.Scene{
     }
 }
 >>>>>>> parent of ff4556f (should be done!)
+=======
+>>>>>>> parent of 6f6f6a8 (Update Play.js)
 =======
 >>>>>>> parent of 6f6f6a8 (Update Play.js)
