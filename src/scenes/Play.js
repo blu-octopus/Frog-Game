@@ -7,7 +7,6 @@ class Play extends Phaser.Scene{
 
     preload() {
         // load images/tile sprites
-<<<<<<< HEAD
         this.load.image('rocket', './assets/singleFrog.png');
         this.load.image('clock', './assets/stopwatch.png');
         this.load.image('lilyPad', './assets/lilyPad.png');
@@ -31,12 +30,6 @@ class Play extends Phaser.Scene{
         //asset name, asset file name, {frame width, frame height, start frame, end frame}
         //assume all frames are the same
         this.load.spritesheet('explosion', './assets/frogEat.png', {frameWidth: 73, frameHeight: 53, startFrame: 0, endFrame: 9});
-=======
-        this.load.image('rocket', './assets/rocket.png');
-        this.load.image('spaceship', './assets/spaceship.png');
-        this.load.image('starfield', './assets/starfield.png');
-        this.load.image('water', './assets/water.png');
->>>>>>> parent of ff4556f (should be done!)
 
       }
 
@@ -61,8 +54,6 @@ class Play extends Phaser.Scene{
        this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0x4E6766).setOrigin(0, 0);
        this.add.rectangle(0, 0, borderUISize, game.config.height, 0x4E6766).setOrigin(0, 0);
        this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0x4E6766).setOrigin(0, 0);
-<<<<<<< HEAD
-
        // add lilypad
        this.lilypad = this.add.image(game.config.width/2, game.config.height/2 + borderUISize*5 + borderPadding*5, 'lilyPad');
        
