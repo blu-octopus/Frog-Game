@@ -4,7 +4,6 @@ class Menu extends Phaser.Scene{
         super("menuScene");
     }
 
-<<<<<<< HEAD
     preload() {
         this.load.spritesheet('screen', './assets/titleScreen.png', {frameWidth: 640, frameHeight: 480, startFrame: 0, endFrame: 1});
         this.load.spritesheet('bigFrog', './assets/frogBig.png', {frameWidth: 290, frameHeight: 215, startFrame: 0, endFrame: 1});
@@ -92,10 +91,5 @@ class Menu extends Phaser.Scene{
         }
 
 
-=======
-    create() {
-        this.add.text(20, 20, "Rocket Patrol Menu");
-        this.scene.start("playScene");
->>>>>>> parent of ff4556f (should be done!)
     }
 }
