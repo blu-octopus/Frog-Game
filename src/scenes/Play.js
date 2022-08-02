@@ -54,10 +54,6 @@ class Play extends Phaser.Scene{
        this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0x4E6766).setOrigin(0, 0);
        this.add.rectangle(0, 0, borderUISize, game.config.height, 0x4E6766).setOrigin(0, 0);
        this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0x4E6766).setOrigin(0, 0);
-<<<<<<< HEAD
-=======
-
->>>>>>> parent of d91fcf6 (ok)
        // add lilypad
        this.lilypad = this.add.image(game.config.width/2, game.config.height/2 + borderUISize*5 + borderPadding*5, 'lilyPad');
        
@@ -337,14 +333,3 @@ class Play extends Phaser.Scene{
     }
 
 }
-
-<<<<<<< HEAD
-    
-    update(){
-        this.water.tilePositionX -= 4;
-
-    }
-
-=======
-//uwu
->>>>>>> parent of d91fcf6 (ok)
