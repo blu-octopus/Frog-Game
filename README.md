@@ -1,3 +1,2 @@
-# Rocket Patrol
- ok class weeeeee
- idk wut to say lmao
+# Rocket Patrol mod
+#created for the class CMPM 120
