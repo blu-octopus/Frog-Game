@@ -179,7 +179,7 @@ class Play extends Phaser.Scene{
 
         //timer
         this.scoreConfig.backgroundColor = '#A5C882';
-        this.scoreConfig.color = '#000';
+        this.scoreConfig.color = '#004';
 
         this.timeLeft = 1800;
         this.timeMid = this.add.text(game.config.width/2 - this.scoreConfig.fixedWidth/2 - 20, borderUISize + borderPadding*2, this.timeLeft, this.scoreConfig);
@@ -307,6 +307,7 @@ class Play extends Phaser.Scene{
         //play add time text
         this.scoreConfig.backgroundColor= '#00F3B141';
         let addTime = this.add.text(this.p1Rocket.x + this.p1Rocket.width/2, ship.y, '+ time!', this.scoreConfig).setOrigin(0);
+        let addScore = this.add.text(this.p1Rocket.x + this.p1Rocket.width/2, ship.y-this.p1Rocket.width/2, '+'+ship.points+'pts!', this.scoreConfig).setOrigin(0);
 
         //play explode animation
         boom.anims.play('explode');
@@ -320,6 +321,7 @@ class Play extends Phaser.Scene{
             //remove explosion sprite
             boom.destroy();
             addTime.destroy();
+            addScore.destroy();
         });
 
         // score add and repaint
