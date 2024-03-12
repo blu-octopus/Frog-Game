@@ -9,7 +9,7 @@ Implemented:
 - timer
 - parallax scrolling
 - score pop up
-- linking between menu, game, and restart
+- enemy generation and player movement
 - sfx implementation, audio loop
 - game border
 
